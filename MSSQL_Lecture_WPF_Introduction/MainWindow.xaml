@@ -1,0 +1,57 @@
+﻿<Window x:Class="MSSQL_Lecture_WPF_Introduction.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MSSQL_Lecture_WPF_Introduction"
+        xmlns:viewmodels="clr-namespace:MSSQL_Lecture_WPF_Introduction.ViewModels"
+        xmlns:views="clr-namespace:MSSQL_Lecture_WPF_Introduction.Views"
+        mc:Ignorable="d"
+        Title="User Controls" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Canvas Grid.Column="1" Grid.RowSpan="4">
+            <ContentControl Content="{Binding}"/>
+        </Canvas>
+        <Button Content="Textbox" Grid.Row="0" Height="NaN" Width="NaN" Click="Button_Click" />
+        <Button Content="Combobox" Grid.Row="1" Height="NaN" Width="NaN" Click="Button_Click_1"/>
+        <Button Content="Datepicker" Grid.Row="2" Height="NaN" Width="NaN" Click="Button_Click_2"/>
+        <Button Content="Label" Grid.Row="3" Height="NaN" Width="NaN" Click="Button_Click_3"/>
+    </Grid>
+    <Window.Resources>
+        <DataTemplate x:Name="texttemplate" DataType="{x:Type viewmodels:TextboxViewModel}">
+            <views:TextViewControl>
+                
+            </views:TextViewControl>
+            
+        </DataTemplate>
+        <DataTemplate x:Name="combotemplate" DataType="{x:Type viewmodels:ComboboxViewModel}">
+            <views:ComboViewControl>
+
+            </views:ComboViewControl>
+
+        </DataTemplate>
+        <DataTemplate x:Name="datepickertemplate" DataType="{x:Type viewmodels:DatepickerViewModel}">
+            <views:DatepickerViewControl>
+
+            </views:DatepickerViewControl>
+
+        </DataTemplate>
+        <DataTemplate x:Name="labeltemplate" DataType="{x:Type viewmodels:LabelViewModel}">
+            <views:LabelViewControl>
+
+            </views:LabelViewControl>
+
+        </DataTemplate>
+    </Window.Resources>
+</Window>
